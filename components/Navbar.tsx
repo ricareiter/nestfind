@@ -49,10 +49,10 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="hidden space-x-4 md:block">
-        <button className="px-6 py-3 font-bold text-black bg-white border-2 rounded-lg border-lighterPurple hover:bg-lighterPurple">
+        <button className="px-6 py-3 font-bold text-black bg-white border-2 rounded-lg border-lighterPurple hover:text-white hover:border-lightPurple hover:bg-lightPurple">
           Login
         </button>
-        <button className="px-6 py-3 font-semibold text-white rounded-lg bg-lightPurple hover:bg-opacity-80">
+        <button className="px-6 py-3 font-semibold text-white border-2 rounded-lg border-lightPurple bg-lightPurple hover:bg-white hover:text-lightPurple">
           Sign up
         </button>
       </div>
