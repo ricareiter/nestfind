@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         darkBlue: "hsl(227, 100, 8)",
+        blueBlack: "hsl(245, 79, 19)",
         lightPurple: "hsl(245, 82, 67)",
         lighterPurple: "hsl(245, 61, 92)",
         lightGray: "hsl(245, 60, 98)",
