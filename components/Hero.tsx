@@ -1,5 +1,6 @@
 import BrowseProperties from "./BrowseProperties";
 import PropertyCard from "./PropertyCard";
+import propertyImg1 from "@/public/property-1.png";
 
 const Hero = () => {
   return (
@@ -28,10 +29,30 @@ const Hero = () => {
       </div>
       <div className="hidden w-1/2 xl:block backgroundImage">
         <div className="ml-12 mt-28">
-          <PropertyCard size="md" border={false} />
+          <PropertyCard
+            propertyImage={propertyImg1}
+            price="2,700"
+            title="Beverly Springfield"
+            address="2821 Lake Sevilla, Palm Harbor, TX"
+            rooms={4}
+            bathrooms={2}
+            size="6x7.5 m²"
+            cardSize="md"
+            border={false}
+          />
         </div>
         <div className="-mt-12 ml-[460px]">
-          <PropertyCard size="sm" border={true} />
+          <PropertyCard
+            propertyImage={propertyImg1}
+            price="2,700"
+            title="Beverly Springfield"
+            address="2821 Lake Sevilla, Palm Harbor, TX"
+            rooms={4}
+            bathrooms={2}
+            size="6x7.5 m²"
+            cardSize="sm"
+            border={true}
+          />
         </div>
       </div>
     </section>
