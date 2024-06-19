@@ -1,4 +1,5 @@
 import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
@@ -14,6 +15,7 @@ export default function Home() {
       <PickedProperties />
       <Stats />
       <Newsletter />
+      <Footer />
     </div>
   );
 }
