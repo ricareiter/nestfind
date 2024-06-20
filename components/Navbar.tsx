@@ -1,11 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import logoIcon from "@/public/logo-icon.jpg";
 import Link from "next/link";
 import { Bars2Icon } from "@heroicons/react/24/outline";
+import LoginModal from "./LoginModal";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleClick = () => {
+    setModalOpen(!modalOpen);
+  };
+
   return (
-    <nav className="container flex items-center justify-between mx-auto mt-6 mb-8">
+    <nav className="container flex items-center justify-between mx-auto mt-6 mb-8 md:px-4">
       <div className="flex items-center px-8 space-x-1 md:px-0">
         <Image
           src={logoIcon}
@@ -49,7 +59,10 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="hidden space-x-4 md:block">
-        <button className="px-6 py-3 font-bold text-black bg-white border-2 rounded-lg border-lighterPurple hover:text-white hover:border-lightPurple hover:bg-lightPurple">
+        <button
+          onClick={() => setModalOpen(true)}
+          className="px-6 py-3 font-bold text-black bg-white border-2 rounded-lg border-lighterPurple hover:text-white hover:border-lightPurple hover:bg-lightPurple"
+        >
           Login
         </button>
         <button className="px-6 py-3 font-semibold text-white border-2 rounded-lg border-lightPurple bg-lightPurple hover:bg-white hover:text-lightPurple">
@@ -59,6 +72,7 @@ const Navbar = () => {
       <div className="block mt-1 px-14 md:hidden">
         <Bars2Icon className="w-8 h-8" />
       </div>
+      <LoginModal display={modalOpen} handleClick={handleClick} />
     </nav>
   );
 };
