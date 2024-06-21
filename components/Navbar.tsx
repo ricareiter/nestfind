@@ -6,12 +6,18 @@ import Link from "next/link";
 import { Bars2Icon } from "@heroicons/react/24/outline";
 import LoginModal from "./LoginModal";
 import { useState } from "react";
+import SignupModal from "./SignupModal";
 
 const Navbar = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
 
   const handleClick = () => {
     setModalOpen(!modalOpen);
+  };
+
+  const handleSignupClick = () => {
+    setSignupOpen(!signupOpen);
   };
 
   return (
@@ -65,7 +71,10 @@ const Navbar = () => {
         >
           Login
         </button>
-        <button className="px-6 py-3 font-semibold text-white border-2 rounded-lg border-lightPurple bg-lightPurple hover:bg-white hover:text-lightPurple">
+        <button
+          onClick={() => setSignupOpen(true)}
+          className="px-6 py-3 font-semibold text-white border-2 rounded-lg border-lightPurple bg-lightPurple hover:bg-white hover:text-lightPurple"
+        >
           Sign up
         </button>
       </div>
@@ -73,6 +82,7 @@ const Navbar = () => {
         <Bars2Icon className="w-8 h-8" />
       </div>
       <LoginModal display={modalOpen} handleClick={handleClick} />
+      <SignupModal display={signupOpen} handleSignupClick={handleSignupClick} />
     </nav>
   );
 };

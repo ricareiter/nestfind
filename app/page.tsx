@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import PickedProperties from "@/components/PickedProperties";
+import SignupModal from "@/components/SignupModal";
 import Stats from "@/components/Stats";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Stats />
       <Newsletter />
       <Footer />
+      <SignupModal />
     </div>
   );
 }
