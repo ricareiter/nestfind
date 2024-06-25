@@ -4,12 +4,12 @@ import propertyImg1 from "@/public/property-1.png";
 
 const Hero = () => {
   return (
-    <section className="flex h-screen mx-auto">
-      <div className="container flex flex-col items-center w-full pt-16 mx-auto space-y-10 text-center xl:items-start px-14 bg-lightGray xl:pt-24 xl:text-left xl:w-1/2 xl:p-24 xl:pl-40 2xl:pl-72">
-        <h2 className="text-5xl font-bold xl:text-7xl text-darkBlue">
+    <section className="flex h-full mx-auto">
+      <div className="container pb-8 px-6 md:px-14 flex flex-col items-center w-full pt-16 mx-auto space-y-10 text-center xl:items-start bg-lightGray xl:pt-24 xl:text-left xl:w-1/2 xl:p-24 xl:pl-40 2xl:pl-72">
+        <h2 className="text-4xl sm:text-5xl font-bold xl:text-7xl text-darkBlue">
           Buy, rent, or sell your property easily
         </h2>
-        <p className="text-xl font-semibold text-darkBlue px-9 xl:pl-0 xl:pr-12">
+        <p className="text-lg px-1 sm:text-xl font-semibold text-darkBlue sm:px-9 xl:pl-0 xl:pr-12">
           A great platform to buy, sell, or even rent your properties without
           any commisions.
         </p>
