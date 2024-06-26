@@ -1,15 +1,33 @@
 import BrowseProperties from "./BrowseProperties";
 import PropertyCard from "./PropertyCard";
-import propertyImg1 from "@/public/property-1.png";
 
-const Hero = () => {
+async function fetchProperties() {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`,
+      { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const Hero = async () => {
+  const properties = await fetchProperties();
+
   return (
     <section className="flex h-full mx-auto">
-      <div className="container pb-8 px-6 md:px-14 flex flex-col items-center w-full pt-16 mx-auto space-y-10 text-center xl:items-start bg-lightGray xl:pt-24 xl:text-left xl:w-1/2 xl:p-24 xl:pl-40 2xl:pl-72">
-        <h2 className="text-4xl sm:text-5xl font-bold xl:text-7xl text-darkBlue">
+      <div className="container flex flex-col items-center w-full px-6 pt-16 pb-8 mx-auto space-y-10 text-center md:px-14 xl:items-start bg-lightGray xl:pt-24 xl:text-left xl:w-1/2 xl:p-24 xl:pl-40 2xl:pl-72">
+        <h2 className="text-4xl font-bold sm:text-5xl xl:text-7xl text-darkBlue">
           Buy, rent, or sell your property easily
         </h2>
-        <p className="text-lg px-1 sm:text-xl font-semibold text-darkBlue sm:px-9 xl:pl-0 xl:pr-12">
+        <p className="px-1 text-lg font-semibold sm:text-xl text-darkBlue sm:px-9 xl:pl-0 xl:pr-12">
           A great platform to buy, sell, or even rent your properties without
           any commisions.
         </p>
@@ -30,26 +48,26 @@ const Hero = () => {
       <div className="hidden w-1/2 xl:block backgroundImage">
         <div className="ml-12 mt-28">
           <PropertyCard
-            propertyImage={propertyImg1}
-            price="2,700"
-            title="Beverly Springfield"
-            address="2821 Lake Sevilla, Palm Harbor, TX"
-            rooms={4}
-            bathrooms={2}
-            size="6x7.5 m²"
+            propertyImage={properties[0].image}
+            price={properties[0].price}
+            title={properties[0].name}
+            address={`${properties[0].address.number} ${properties[0].address.street}, ${properties[0].address.city}, ${properties[0].address.state}`}
+            rooms={properties[0].beds}
+            bathrooms={properties[0].baths}
+            size={`${properties[0].size} m²`}
             cardSize="md"
             border={false}
           />
         </div>
         <div className="-mt-12 ml-[460px]">
           <PropertyCard
-            propertyImage={propertyImg1}
-            price="2,700"
-            title="Beverly Springfield"
-            address="2821 Lake Sevilla, Palm Harbor, TX"
-            rooms={4}
-            bathrooms={2}
-            size="6x7.5 m²"
+            propertyImage={properties[0].image}
+            price={properties[0].price}
+            title={properties[0].name}
+            address={`${properties[0].address.number} ${properties[0].address.street}, ${properties[0].address.city}, ${properties[0].address.state}`}
+            rooms={properties[0].beds}
+            bathrooms={properties[0].baths}
+            size={`${properties[0].size} m²`}
             cardSize="sm"
             border={true}
           />

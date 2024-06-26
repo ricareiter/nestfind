@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { LuBedSingle, LuBath, LuPencilRuler } from "react-icons/lu";
 
 interface Props {
