@@ -1,13 +1,26 @@
 import { LuSearch, LuKeyRound, LuCamera, LuMailOpen } from "react-icons/lu";
 import PropertyCard from "./PropertyCard";
-import propertyImg1 from "@/public/property-1.png";
-import propertyImg2 from "@/public/property-2.png";
-import propertyImg3 from "@/public/property-3.png";
-import propertyImg4 from "@/public/property-4.png";
-import propertyImg5 from "@/public/property-5.png";
-import propertyImg6 from "@/public/property-6.png";
 
-const PickedProperties = () => {
+async function fetchProperties() {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`,
+      { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const PickedProperties = async () => {
+  const properties = await fetchProperties();
+
   return (
     <section className="container mx-auto mt-12 mb-12 md:mt-36">
       <div className="flex flex-col mx-auto xl:w-5/6">
@@ -45,68 +58,68 @@ const PickedProperties = () => {
         </div>
         <div className="flex flex-col px-4 mx-auto space-y-12 md:flex-row md:space-y-0 md:flex-wrap md:justify-center md:gap-12">
           <PropertyCard
-            propertyImage={propertyImg1}
-            price="2,700"
-            title="Beverly Springfield"
-            address="2821 Lake Sevilla, Palm Harbor, TX"
-            rooms={4}
-            bathrooms={2}
-            size="6x7.5 m²"
+            propertyImage={properties[0].image}
+            price={properties[0].price}
+            title={properties[0].name}
+            address={`${properties[0].address.number} ${properties[0].address.street}, ${properties[0].address.city}, ${properties[0].address.state}`}
+            rooms={properties[0].beds}
+            bathrooms={properties[0].baths}
+            size={`${properties[0].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={propertyImg2}
-            price="2,095"
-            title="Palm Harbor"
-            address="2699 Green Valley, Highland Lake, FL"
-            rooms={3}
-            bathrooms={2}
-            size="6x7 m²"
+            propertyImage={properties[1].image}
+            price={properties[1].price}
+            title={properties[1].name}
+            address={`${properties[1].address.number} ${properties[1].address.street}, ${properties[1].address.city}, ${properties[1].address.state}`}
+            rooms={properties[1].beds}
+            bathrooms={properties[1].baths}
+            size={`${properties[1].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={propertyImg3}
-            price="4,550"
-            title="Faulkner Ave"
-            address="909 Woodland St, Michigan, IN"
-            rooms={4}
-            bathrooms={3}
-            size="8x10 m²"
+            propertyImage={properties[2].image}
+            price={properties[2].price}
+            title={properties[2].name}
+            address={`${properties[2].address.number} ${properties[2].address.street}, ${properties[2].address.city}, ${properties[2].address.state}`}
+            rooms={properties[2].beds}
+            bathrooms={properties[2].baths}
+            size={`${properties[2].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={propertyImg4}
-            price="2,400"
-            title="St. Crystal"
-            address="210 US Highway, Highland Lake, FL"
-            rooms={4}
-            bathrooms={2}
-            size="6x8 m²"
+            propertyImage={properties[3].image}
+            price={properties[3].price}
+            title={properties[3].name}
+            address={`${properties[3].address.number} ${properties[3].address.street}, ${properties[3].address.city}, ${properties[3].address.state}`}
+            rooms={properties[3].beds}
+            bathrooms={properties[3].baths}
+            size={`${properties[3].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={propertyImg5}
-            price="1,500"
-            title="Cove Red"
-            address="243 Curlew Road, Palm Harbor, TX"
-            rooms={1}
-            bathrooms={1}
-            size="5x7.5 m²"
+            propertyImage={properties[4].image}
+            price={properties[4].price}
+            title={properties[4].name}
+            address={`${properties[4].address.number} ${properties[4].address.street}, ${properties[4].address.city}, ${properties[4].address.state}`}
+            rooms={properties[4].beds}
+            bathrooms={properties[4].baths}
+            size={`${properties[4].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={propertyImg6}
-            price="1,600"
-            title="Tarpon Bay"
-            address="103 Lake Shores, Michigan, IN"
-            rooms={3}
-            bathrooms={1}
-            size="5x7 m²"
+            propertyImage={properties[5].image}
+            price={properties[5].price}
+            title={properties[5].name}
+            address={`${properties[5].address.number} ${properties[5].address.street}, ${properties[5].address.city}, ${properties[5].address.state}`}
+            rooms={properties[5].beds}
+            bathrooms={properties[5].baths}
+            size={`${properties[5].size} m²`}
             cardSize="md"
             border={false}
           />

@@ -2,7 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import { LuBedSingle, LuBath, LuPencilRuler } from "react-icons/lu";
 
 interface Props {
-  propertyImage: StaticImageData;
+  propertyImage: string;
   price: string;
   title: string;
   address: string;
@@ -65,7 +65,10 @@ const PropertyCard = ({
       }`}
     >
       <Image
+        unoptimized
         src={propertyImage}
+        width={350}
+        height={300}
         alt="property image"
         className={border ? "" : "rounded-t-lg"}
       />
