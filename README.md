@@ -15,6 +15,8 @@ A great platform to buy, sell, or even rent your properties without any commisio
 - Next.js
 - Typescript
 - Tailwind CSS
+- Prisma
+- Neon Serverless Postgres
 
 ## Author
 
