@@ -1,25 +1,9 @@
 import { LuSearch, LuKeyRound, LuCamera, LuMailOpen } from "react-icons/lu";
+import { getLatestProperties } from "@/lib/actions/property.actions";
 import PropertyCard from "./PropertyCard";
 
-async function fetchProperties() {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`,
-      { next: { revalidate: 60 } }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 const PickedProperties = async () => {
-  const properties = await fetchProperties();
+  const latestProperties = await getLatestProperties();
 
   return (
     <section className="container mx-auto mt-12 mb-12 md:mt-36">
@@ -58,68 +42,68 @@ const PickedProperties = async () => {
         </div>
         <div className="flex flex-col px-4 mx-auto space-y-12 md:flex-row md:space-y-0 md:flex-wrap md:justify-center md:gap-12">
           <PropertyCard
-            propertyImage={properties[0].image}
-            price={properties[0].price}
-            title={properties[0].name}
-            address={`${properties[0].address.number} ${properties[0].address.street}, ${properties[0].address.city}, ${properties[0].address.state}`}
-            rooms={properties[0].beds}
-            bathrooms={properties[0].baths}
-            size={`${properties[0].size} m²`}
+            propertyImage={latestProperties[0].images[0]}
+            price={latestProperties[0].price}
+            title={latestProperties[0].name}
+            address={`${latestProperties[0].number} ${latestProperties[0].street}, ${latestProperties[0].city}, ${latestProperties[0].state}`}
+            rooms={latestProperties[0].beds}
+            bathrooms={latestProperties[0].baths}
+            size={`${latestProperties[0].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={properties[1].image}
-            price={properties[1].price}
-            title={properties[1].name}
-            address={`${properties[1].address.number} ${properties[1].address.street}, ${properties[1].address.city}, ${properties[1].address.state}`}
-            rooms={properties[1].beds}
-            bathrooms={properties[1].baths}
-            size={`${properties[1].size} m²`}
+            propertyImage={latestProperties[1].images[0]}
+            price={latestProperties[1].price}
+            title={latestProperties[1].name}
+            address={`${latestProperties[1].number} ${latestProperties[1].street}, ${latestProperties[1].city}, ${latestProperties[1].state}`}
+            rooms={latestProperties[1].beds}
+            bathrooms={latestProperties[1].baths}
+            size={`${latestProperties[1].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={properties[2].image}
-            price={properties[2].price}
-            title={properties[2].name}
-            address={`${properties[2].address.number} ${properties[2].address.street}, ${properties[2].address.city}, ${properties[2].address.state}`}
-            rooms={properties[2].beds}
-            bathrooms={properties[2].baths}
-            size={`${properties[2].size} m²`}
+            propertyImage={latestProperties[2].images[0]}
+            price={latestProperties[2].price}
+            title={latestProperties[2].name}
+            address={`${latestProperties[2].number} ${latestProperties[2].street}, ${latestProperties[2].city}, ${latestProperties[2].state}`}
+            rooms={latestProperties[2].beds}
+            bathrooms={latestProperties[2].baths}
+            size={`${latestProperties[2].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={properties[3].image}
-            price={properties[3].price}
-            title={properties[3].name}
-            address={`${properties[3].address.number} ${properties[3].address.street}, ${properties[3].address.city}, ${properties[3].address.state}`}
-            rooms={properties[3].beds}
-            bathrooms={properties[3].baths}
-            size={`${properties[3].size} m²`}
+            propertyImage={latestProperties[3].images[0]}
+            price={latestProperties[3].price}
+            title={latestProperties[3].name}
+            address={`${latestProperties[3].number} ${latestProperties[3].street}, ${latestProperties[3].city}, ${latestProperties[3].state}`}
+            rooms={latestProperties[3].beds}
+            bathrooms={latestProperties[3].baths}
+            size={`${latestProperties[3].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={properties[4].image}
-            price={properties[4].price}
-            title={properties[4].name}
-            address={`${properties[4].address.number} ${properties[4].address.street}, ${properties[4].address.city}, ${properties[4].address.state}`}
-            rooms={properties[4].beds}
-            bathrooms={properties[4].baths}
-            size={`${properties[4].size} m²`}
+            propertyImage={latestProperties[4].images[0]}
+            price={latestProperties[4].price}
+            title={latestProperties[4].name}
+            address={`${latestProperties[4].number} ${latestProperties[4].street}, ${latestProperties[4].city}, ${latestProperties[4].state}`}
+            rooms={latestProperties[4].beds}
+            bathrooms={latestProperties[4].baths}
+            size={`${latestProperties[4].size} m²`}
             cardSize="md"
             border={false}
           />
           <PropertyCard
-            propertyImage={properties[5].image}
-            price={properties[5].price}
-            title={properties[5].name}
-            address={`${properties[5].address.number} ${properties[5].address.street}, ${properties[5].address.city}, ${properties[5].address.state}`}
-            rooms={properties[5].beds}
-            bathrooms={properties[5].baths}
-            size={`${properties[5].size} m²`}
+            propertyImage={latestProperties[5].images[0]}
+            price={latestProperties[5].price}
+            title={latestProperties[5].name}
+            address={`${latestProperties[5].number} ${latestProperties[5].street}, ${latestProperties[5].city}, ${latestProperties[5].state}`}
+            rooms={latestProperties[5].beds}
+            bathrooms={latestProperties[5].baths}
+            size={`${latestProperties[5].size} m²`}
             cardSize="md"
             border={false}
           />

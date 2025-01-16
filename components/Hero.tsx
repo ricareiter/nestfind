@@ -1,25 +1,9 @@
 import BrowseProperties from "./BrowseProperties";
 import PropertyCard from "./PropertyCard";
-
-async function fetchProperties() {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`,
-      { next: { revalidate: 60 } }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { getLatestProperties } from "@/lib/actions/property.actions";
 
 const Hero = async () => {
-  const properties = await fetchProperties();
+  const latestProperties = await getLatestProperties();
 
   return (
     <section className="flex h-full mx-auto">
@@ -48,26 +32,26 @@ const Hero = async () => {
       <div className="hidden w-1/2 xl:block backgroundImage">
         <div className="ml-12 mt-28">
           <PropertyCard
-            propertyImage={properties[0].image}
-            price={properties[0].price}
-            title={properties[0].name}
-            address={`${properties[0].address.number} ${properties[0].address.street}, ${properties[0].address.city}, ${properties[0].address.state}`}
-            rooms={properties[0].beds}
-            bathrooms={properties[0].baths}
-            size={`${properties[0].size} m²`}
+            propertyImage={latestProperties[0].images[0]}
+            price={latestProperties[0].price}
+            title={latestProperties[0].name}
+            address={`${latestProperties[0].number} ${latestProperties[0].street}, ${latestProperties[0].city}, ${latestProperties[0].state}`}
+            rooms={latestProperties[0].beds}
+            bathrooms={latestProperties[0].baths}
+            size={`${latestProperties[0].size} m²`}
             cardSize="md"
             border={false}
           />
         </div>
         <div className="-mt-12 ml-[460px]">
           <PropertyCard
-            propertyImage={properties[0].image}
-            price={properties[0].price}
-            title={properties[0].name}
-            address={`${properties[0].address.number} ${properties[0].address.street}, ${properties[0].address.city}, ${properties[0].address.state}`}
-            rooms={properties[0].beds}
-            bathrooms={properties[0].baths}
-            size={`${properties[0].size} m²`}
+            propertyImage={latestProperties[0].images[0]}
+            price={latestProperties[0].price}
+            title={latestProperties[0].name}
+            address={`${latestProperties[0].number} ${latestProperties[0].street}, ${latestProperties[0].city}, ${latestProperties[0].state}`}
+            rooms={latestProperties[0].beds}
+            bathrooms={latestProperties[0].baths}
+            size={`${latestProperties[0].size} m²`}
             cardSize="sm"
             border={true}
           />

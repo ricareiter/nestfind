@@ -3,7 +3,7 @@ import { LuBedSingle, LuBath, LuPencilRuler } from "react-icons/lu";
 
 interface Props {
   propertyImage: string;
-  price: string;
+  price: number;
   title: string;
   address: string;
   rooms: number;

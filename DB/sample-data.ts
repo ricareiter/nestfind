@@ -1,0 +1,108 @@
+const sampleData = {
+  users: [
+    {
+      name: "John",
+      email: "admin@example.com",
+      role: "admin",
+    },
+    {
+      name: "Jane",
+      email: "user@example.com",
+      role: "user",
+    },
+  ],
+  properties: [
+    {
+      name: "Faulkner Ave",
+      price: 4550,
+      slug: "faulkner-ave-michigan",
+      beds: 4,
+      baths: 3,
+      size: "8x10",
+      number: 909,
+      city: "Michigan",
+      street: "Woodland St",
+      state: "IN",
+      images: [
+        "https://res.cloudinary.com/dovijyplc/image/upload/v1719407533/nestfind/property-3_r8w1ih.png",
+      ],
+    },
+    {
+      name: "Palm Harbor",
+      price: 2095,
+      slug: "palm-harbor-highland-lake",
+      beds: 3,
+      baths: 2,
+      size: "6x7",
+      number: 2699,
+      city: "Highland Lake",
+      street: "Green Valley",
+      state: "FL",
+      images: [
+        "https://res.cloudinary.com/dovijyplc/image/upload/v1719407532/nestfind/property-2_xbrswf.png",
+      ],
+    },
+    {
+      name: "Beverly Springfield",
+      price: 2700,
+      slug: "beverly-springfield-palm-harbor",
+      beds: 4,
+      baths: 2,
+      size: "6x75",
+      number: 2821,
+      city: "Palm Harbor",
+      street: "Lake Sevilla",
+      state: "TX",
+      images: [
+        "https://res.cloudinary.com/dovijyplc/image/upload/v1719407532/nestfind/property-1_p8jdu7.png",
+      ],
+    },
+    {
+      name: "Cove Red",
+      price: 1500,
+      slug: "cove-red-palm-harbor",
+      beds: 1,
+      baths: 1,
+      size: "5x75",
+      number: 243,
+      city: "Palm Harbor",
+      street: "Curlew Road",
+      state: "TX",
+      images: [
+        "https://res.cloudinary.com/dovijyplc/image/upload/v1719407533/nestfind/property-5_x3je0t.png",
+      ],
+    },
+    {
+      name: "St. Crystal",
+      price: 2400,
+      slug: "st-crystal-highland-lake",
+      beds: 4,
+      baths: 2,
+      size: "6x8",
+      number: 210,
+      city: "Highland Lake",
+      street: "US Highway",
+      state: "FL",
+      images: [
+        "https://res.cloudinary.com/dovijyplc/image/upload/v1719407533/nestfind/property-4_jo8s5b.png",
+      ],
+    },
+    {
+      name: "Palm Harbor",
+      price: 1600,
+      slug: "palm-harbor-michigan",
+      beds: 3,
+      baths: 1,
+      size: "5x7",
+      number: 103,
+      city: "Michigan",
+      street: "Lake Shores",
+      state: "IN",
+      images: [
+        "https://res.cloudinary.com/dovijyplc/image/upload/v1719407534/nestfind/property-6_kp7io0.png",
+      ],
+    },
+  ],
+};
+
+export default sampleData;
